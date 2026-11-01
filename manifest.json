@@ -1,0 +1,15 @@
+{
+  "name": "Credit Card Payoff Calculator \u2014 Debt Snowball vs Avalanche",
+  "short_name": "credit-card-payoff",
+  "start_url": "https://sebiglesias.com.ar/credit-card-payoff/",
+  "display": "standalone",
+  "background_color": "#0e0d0b",
+  "theme_color": "#ef4444",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

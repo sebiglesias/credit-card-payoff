@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Credit Card Payoff Calculator — Debt Snowball vs Avalanche</title>
+<meta name="description" content="Compare the Debt Avalanche vs Debt Snowball methods to pay off credit card debt. See exact payoff dates, interest savings, and the minimum payment trap.">
+<link rel="canonical" href="https://sebiglesias.com.ar/credit-card-payoff/">
+<meta name="theme-color" content="#ef4444">
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2BNDBQP0W7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2BNDBQP0W7');
+</script>
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Credit Card Payoff Calculator — Debt Snowball vs Avalanche">
+<meta property="og:description" content="Compare the Debt Avalanche vs Debt Snowball methods to pay off credit card debt. See exact payoff dates, interest savings, and the minimum payment trap.">
+<meta property="og:url" content="https://sebiglesias.com.ar/credit-card-payoff/">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Credit Card Payoff Calculator — Debt Snowball vs Avalanche">
+<meta name="twitter:description" content="Compare the Debt Avalanche vs Debt Snowball methods to pay off credit card debt. See exact payoff dates, interest savings, and the minimum payment trap.">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+
+<meta name="google-adsense-account" content="ca-pub-3381238987477190">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3381238987477190" crossorigin="anonymous"></script>
+
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Credit Card Payoff Calculator \u2014 Debt Snowball vs Avalanche",
+    "description": "Compare the Debt Avalanche vs Debt Snowball methods to pay off credit card debt. See exact payoff dates, interest savings, and the minimum payment trap.",
+    "url": "https://sebiglesias.com.ar/credit-card-payoff/",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the Minimum Payment Trap?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Credit card issuers calculate minimum payments as low as 1% of the balance plus monthly interest. This keeps you in debt for 15 to 25 years and often forces you to pay triple the original purchase price in interest."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between Snowball and Avalanche?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The Debt Avalanche method pays the highest APR balance first, saving the most money in mathematical interest. The Debt Snowball pays the smallest dollar balance first, creating psychological momentum."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does paying off credit card debt improve credit score?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! Credit utilization accounts for 30% of your FICO score. Bringing utilization below 10% on revolving credit cards typically yields an immediate 25-50 point score boost."
+        }
+      }
+    ]
+  }
+]
+</script>
+</head>
+<body>
+<div class="container">
+  
+    <header>
+      <span class="badge">Debt Freedom Tool</span>
+      <h1>Credit Card Payoff Calculator</h1>
+      <p class="subtitle">Calculate how fast you can eliminate credit card debt and escape the minimum payment trap using smart repayment strategies.</p>
+    </header>
+    <div class="grid">
+      <div class="card">
+        <h2>Credit Card Balance & Rate</h2>
+        <div class="form-group">
+          <label for="balance">Total Credit Card Balance <span>USD</span></label>
+          <div class="input-wrapper">
+            <span class="input-prefix">$</span>
+            <input type="number" id="balance" class="has-prefix" value="7500" min="100" max="100000" step="100">
+          </div>
+          <input type="range" id="balanceRange" min="500" max="30000" step="500" value="7500">
+        </div>
+        <div class="form-group">
+          <label for="apr">Interest Rate (APR) <span>%</span></label>
+          <div class="input-wrapper">
+            <input type="number" id="apr" class="has-suffix" value="24.99" min="5" max="39" step="0.1">
+            <span class="input-suffix">%</span>
+          </div>
+          <input type="range" id="aprRange" min="12" max="32" step="0.5" value="24.99">
+        </div>
+        <div class="form-group">
+          <label for="paymentPlan">Target Monthly Payment <span>USD</span></label>
+          <div class="input-wrapper">
+            <span class="input-prefix">$</span>
+            <input type="number" id="paymentPlan" class="has-prefix" value="350" min="50" max="5000" step="25">
+          </div>
+          <input type="range" id="paymentPlanRange" min="100" max="1500" step="25" value="350">
+        </div>
+      </div>
+      <div class="card">
+        <h2>Strategy Comparison</h2>
+        <div class="kpi-grid">
+          <div class="kpi-card highlight">
+            <div class="kpi-label">Debt-Free In</div>
+            <div class="kpi-value accent" id="monthsToPay">0 mo</div>
+          </div>
+          <div class="kpi-card highlight">
+            <div class="kpi-label">Interest Paid</div>
+            <div class="kpi-value" id="totalInterest">$0</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Min Payment Trap Time</div>
+            <div class="kpi-value" id="minTime">0 yrs</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Min Payment Trap Cost</div>
+            <div class="kpi-value red" id="minCost">$0</div>
+          </div>
+        </div>
+        <div id="verdictBox" style="background: var(--bg-card-inner); padding: 1rem; border-radius: var(--radius-md); font-size: 0.88rem; line-height: 1.5; color: var(--text-muted);">
+          Calculating...
+        </div>
+      </div>
+    </div>
+    
+
+  <section class="faq-section">
+    <h2 class="faq-title">Frequently Asked Questions</h2>
+    
+        <div class="faq-item">
+          <h3>What is the Minimum Payment Trap?</h3>
+          <p>Credit card issuers calculate minimum payments as low as 1% of the balance plus monthly interest. This keeps you in debt for 15 to 25 years and often forces you to pay triple the original purchase price in interest.</p>
+        </div>
+        <div class="faq-item">
+          <h3>What is the difference between Snowball and Avalanche?</h3>
+          <p>The Debt Avalanche method pays the highest APR balance first, saving the most money in mathematical interest. The Debt Snowball pays the smallest dollar balance first, creating psychological momentum.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Does paying off credit card debt improve credit score?</h3>
+          <p>Yes! Credit utilization accounts for 30% of your FICO score. Bringing utilization below 10% on revolving credit cards typically yields an immediate 25-50 point score boost.</p>
+        </div>
+  </section>
+
+  <div class="cross-links">
+    <a href="https://sebiglesias.com.ar/car-payoff-calculator/">🚗 Car Payoff</a>
+    <a href="https://sebiglesias.com.ar/credit-card-payoff/">💳 Credit Card Payoff</a>
+    <a href="https://sebiglesias.com.ar/insurance-deductible/">🛡️ Insurance Deductible</a>
+    <a href="https://sebiglesias.com.ar/rent-vs-buy-calculator/">🏡 Rent vs Buy</a>
+    <a href="https://sebiglesias.com.ar/concrete-calculator/">🧱 Concrete Calculator</a>
+    <a href="https://sebiglesias.com.ar/moving-truck-calculator/">📦 Moving Truck</a>
+    <a href="https://sebiglesias.com.ar/ac-btu-calculator/">❄️ AC BTU Sizing</a>
+    <a href="https://sebiglesias.com.ar/mulch-calculator/">🌱 Mulch Calculator</a>
+    <a href="https://sebiglesias.com.ar/salary-to-hourly/">💼 Salary to Hourly</a>
+    <a href="https://sebiglesias.com.ar/paint-calculator/">🎨 Paint Calculator</a>
+  </div>
+
+  <footer>
+    <p>© 2026 Free Web Utility. Created by <a href="https://sebiglesias.com.ar">Sebastián Iglesias</a>. Free & Fast.</p>
+  </footer>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
