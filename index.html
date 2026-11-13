@@ -6,6 +6,17 @@
 <title>Credit Card Payoff Calculator — Debt Snowball vs Avalanche</title>
 <meta name="description" content="Compare the Debt Avalanche vs Debt Snowball methods to pay off credit card debt. See exact payoff dates, interest savings, and the minimum payment trap.">
 <link rel="canonical" href="https://sebiglesias.com.ar/credit-card-payoff/">
+  <link rel="alternate" hreflang="en" href="https://sebiglesias.com.ar/credit-card-payoff/">
+  <link rel="alternate" hreflang="es" href="https://sebiglesias.com.ar/credit-card-payoff/?lang=es">
+  <link rel="alternate" hreflang="de" href="https://sebiglesias.com.ar/credit-card-payoff/?lang=de">
+  <link rel="alternate" hreflang="fr" href="https://sebiglesias.com.ar/credit-card-payoff/?lang=fr">
+  <link rel="alternate" hreflang="it" href="https://sebiglesias.com.ar/credit-card-payoff/?lang=it">
+  <link rel="alternate" hreflang="pt" href="https://sebiglesias.com.ar/credit-card-payoff/?lang=pt">
+  <link rel="alternate" hreflang="nl" href="https://sebiglesias.com.ar/credit-card-payoff/?lang=nl">
+  <link rel="alternate" hreflang="sv" href="https://sebiglesias.com.ar/credit-card-payoff/?lang=sv">
+  <link rel="alternate" hreflang="da" href="https://sebiglesias.com.ar/credit-card-payoff/?lang=da">
+  <link rel="alternate" hreflang="pl" href="https://sebiglesias.com.ar/credit-card-payoff/?lang=pl">
+  <link rel="alternate" hreflang="x-default" href="https://sebiglesias.com.ar/credit-card-payoff/">
 <meta name="theme-color" content="#ef4444">
 <meta name="robots" content="index, follow, max-image-preview:large">
 
@@ -89,6 +100,18 @@
 <div class="container">
   
     <header>
+<div style='display:flex;justify-content:flex-end;margin-bottom:.5rem'><select id="lang-select" aria-label="Language" style="background:#24221C;border:1px solid rgba(242,239,230,.18);color:#F2EFE6;font-family:'JetBrains Mono',monospace;font-size:.72rem;padding:3px 6px;border-radius:3px;cursor:pointer;margin-left:auto">
+  <option value="en">🇺🇸 EN</option>
+  <option value="es">🇪🇸 ES</option>
+  <option value="de">🇩🇪 DE</option>
+  <option value="fr">🇫🇷 FR</option>
+  <option value="it">🇮🇹 IT</option>
+  <option value="pt">🇵🇹 PT</option>
+  <option value="nl">🇳🇱 NL</option>
+  <option value="sv">🇸🇪 SV</option>
+  <option value="da">🇩🇰 DA</option>
+  <option value="pl">🇵🇱 PL</option>
+</select></div>
       <span class="badge">Debt Freedom Tool</span>
       <h1>Credit Card Payoff Calculator</h1>
       <p class="subtitle">Calculate how fast you can eliminate credit card debt and escape the minimum payment trap using smart repayment strategies.</p>
@@ -213,5 +236,41 @@
 </div>
 
 <script src="app.js"></script>
+
+<script>
+/* I18N_AUTO_ENGINE */
+(function(){
+  const DICT = {"en": {"title": "Credit Card Payoff Calculator<span class='accent'>.</span>", "sub": "APR interest breakdown, minimum trap comparison & debt-free timeline"}, "es": {"title": "Calculadora Pago de Tarjeta de Crédito<span class='accent'>.</span>", "sub": "Intereses acumulados, trampa del pago mínimo y plan para salir de deudas"}, "de": {"title": "Kreditkarten-Tilgungsrechner<span class='accent'>.</span>", "sub": "Zinskosten bei Teilzahlung vs. feste Monatsrate bis zur Schuldenfreiheit"}, "fr": {"title": "Calculateur Remboursement Carte de Crédit<span class='accent'>.</span>", "sub": "Coût des intérêts, piège du paiement minimum et date de fin de dette"}, "it": {"title": "Calcolatore Rimborso Carta di Credito<span class='accent'>.</span>", "sub": "Confronto rata minima vs piano di estinzione debito e risparmio interessi"}, "pt": {"title": "Calculadora Quitação Cartão de Crédito<span class='accent'>.</span>", "sub": "Compare o pagamento mínimo com parcelas fixas e economize juros"}, "nl": {"title": "Creditcard Schulden Aflossen Calculator<span class='accent'>.</span>", "sub": "Zie hoeveel rente je bespaart door meer dan het minimum af te lossen"}, "sv": {"title": "Kreditkort Avbetalningskalkylator<span class='accent'>.</span>", "sub": "Jämför lägsta betalning mot fast amortering och bli skuldfri snabbare"}, "da": {"title": "Kreditkort Afviklingsberegner<span class='accent'>.</span>", "sub": "Se hvad minimumsbetaling koster i renter og hvornår du er gældfri"}, "pl": {"title": "Kalkulator Spłaty Karty Kredytowej<span class='accent'>.</span>", "sub": "Porównaj spłatę minimalną ze stałą ratą i policz oszczędność na odsetkach"}};
+  const h1El = document.querySelector('h1');
+  const subEl = document.querySelector('.sub') || document.querySelector('header p');
+  const selEl = document.getElementById('lang-select');
+  function applyLang(lang) {
+    const entry = DICT[lang] || DICT.en;
+    document.documentElement.lang = lang;
+    if (h1El && entry.title) h1El.innerHTML = entry.title;
+    if (subEl && entry.sub) subEl.textContent = entry.sub;
+    if (lang !== 'en' && entry.sub) {
+      document.title = (h1El ? h1El.textContent : '') + ' — ' + entry.sub;
+    }
+  }
+  const params = new URLSearchParams(window.location.search);
+  const init = params.get('lang') || localStorage.getItem('credit-card-payoff-lang') || 'en';
+  const valid = DICT[init] ? init : 'en';
+  if (selEl) {
+    selEl.value = valid;
+    selEl.addEventListener('change', function(e) {
+      const nl = e.target.value;
+      localStorage.setItem('credit-card-payoff-lang', nl);
+      const u = new URL(window.location.href);
+      if (nl === 'en') u.searchParams.delete('lang');
+      else u.searchParams.set('lang', nl);
+      window.history.replaceState({}, '', u);
+      applyLang(nl);
+    });
+  }
+  applyLang(valid);
+})();
+</script>
+
 </body>
 </html>
